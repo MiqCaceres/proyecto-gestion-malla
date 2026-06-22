@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -106,9 +107,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/6.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Asuncion'
 
 USE_I18N = True
 
@@ -123,3 +124,58 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Esta línea comprime los archivos estáticos para que carguen más rápido
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
+
+#  CONFIGURACIÓN DE APARIENCIA DE JAZZMIN
+JAZZMIN_SETTINGS = {
+    # Título de la pestaña del navegador
+    "site_title": "Malla Académica UAA",
+
+    # Título en la barra superior del panel (esquina superior izquierda)
+    "site_header": "Malla Curricular UAA",
+
+    # Texto de marca para el menú lateral colapsado
+    "site_brand": "Gestión Malla",
+
+    # Texto de bienvenida en la pantalla de inicio de sesión (Login)
+    "welcome_sign": "Sistema de Gestión de Malla Curricular - UAA",
+
+    # Copyright en el pie de página
+    "copyright": "Universidad Autónoma de Asunción - Facultad de Ciencias y Tecnología",
+
+    # Buscar modelos globalmente en la barra superior
+    "search_model": ["academico.Materia", "academico.Carrera"],
+
+    # Formato de los menús (puedes poner "horizontal" o "vertical")
+    "topmenu_links": [
+        {"name": "Inicio", "url": "admin:index", "permissions": ["auth.view_user"]},
+    ],
+}
+
+# 👇 CONFIGURACIÓN DE COLORES Y TEMA DE JAZZMIN (UI TWEAKS)
+JAZZMIN_UI_TWEAKS = {
+
+    "theme": "darkly",
+    "dark_mode_theme": "darkly",
+    
+    "navbar_small_text": False,
+    "footer_small_text": False,
+    "body_small_text": False,
+    "brand_small_text": False,
+    "brand_colour": False,
+    "accent": "accent-primary",
+    "navbar": "navbar-dark",
+    "no_navbar_border": False,
+    "navbar_fixed": False,
+    "layout_boxed": False,
+    "footer_fixed": False,
+    "sidebar_fixed": False,
+    "sidebar": "sidebar-dark-primary",
+    "sidebar_nav_small_text": False,
+    "sidebar_disable_expand": False,
+    "sidebar_nav_child_indent": False,
+    "sidebar_nav_compact_style": False,
+    "sidebar_nav_legacy_style": False,
+    "sidebar_nav_flat_style": False,
+}
